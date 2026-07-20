@@ -1,0 +1,53 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+
+/*
+ * Complete the 'countingSort' function below.
+ *
+ * The function is expected to return an INTEGER_ARRAY.
+ * The function accepts INTEGER_ARRAY arr as parameter.
+ */
+void countingSort(vector<int>&arr) {
+    int maxele=*max_element(arr.begin(),arr.end());
+vector<int>freq(maxele+1,0);
+for(int j=0;j<arr.size();j++){
+    freq[arr[j]]++; 
+}
+int k=0;
+  for(int j=0;j<freq.size();j++){
+     if(freq[j]!=0){
+
+         while(freq[j]!=0){
+        arr[k++]=j;
+        freq[j]--; 
+         }
+     }
+ }
+
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int>arr(n,0);
+    for(int j=0;j<n;j++){
+        cin>>arr[j];    
+    }
+    countingSort(arr);
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    
+}
+
+
+
+
