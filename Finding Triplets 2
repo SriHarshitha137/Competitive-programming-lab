@@ -1,0 +1,50 @@
+#include <cmath>
+#include <cstdio>
+#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n;
+    cin>>n;
+    vector<int>vec(n,0);
+    
+    for(int i=0;i<n;i++){
+        cin>>vec[i];
+    }
+    sort(vec.begin(),vec.end());
+    int val;
+    cin>>val;
+ bool flag=false;
+    for(int i=0;i<n;i++){
+        int j=i+1;
+        int k=n-1;
+       int sum=0;
+       vector<int>res;
+       while(j<k){
+        sum=(vec[j]+vec[k]+vec[i]);
+        if(sum==val){
+           cout<<vec[i]<<" "<<vec[j]<<" "<<vec[k];
+cout<<"\n";
+k--;
+flag=true;
+        }
+        else if(sum<val){
+            j++;
+        }
+        else if(sum>val){
+            k--;
+        }
+       } 
+
+    }
+    if(!flag){
+    cout<<"No Triplet Found";
+}
+    
+    
+    return 0;
+}
