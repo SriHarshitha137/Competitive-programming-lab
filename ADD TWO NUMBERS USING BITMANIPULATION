@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int addUsingBitManipulation(int a, int b) {
+    while (b != 0) {
+
+        int carry = (a & b) << 1;
+        a = a ^ b;
+        
+        b = carry;
+    }
+    return a;
+}
+
+int main() {
+    int num1;
+    int num2;
+    cin>>num1;
+    cin>>num2;
+    int result = addUsingBitManipulation(num1, num2);
+    
+    cout << result;
+    
+    return 0;
+}
